@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Danish Youth Team</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Danish Youth Team">
+  <meta name="author" content="Danish Youth Team">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="./img/Logo DYT.png" />
+
+</head>
+
+<body>
+  <!-------------- Navigation -------------->
+  <nav id="tabbar" class="tabbar hide">
+    <a href="#/"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+  <path id="Icon_material-dashboard" data-name="Icon material-dashboard" d="M4.5,19.5h12V4.5H4.5Zm0,12h12v-9H4.5Zm15,0h12v-15h-12Zm0-27v9h12v-9Z" transform="translate(-4.5 -4.5)"/>
+</svg>
+</a>
+      <a href="#/events"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="30.857" viewBox="0 0 27 30.857">
+  <path id="Icon_awesome-calendar-alt" data-name="Icon awesome-calendar-alt" d="M0,27.964a2.894,2.894,0,0,0,2.893,2.893H24.107A2.894,2.894,0,0,0,27,27.964V11.571H0ZM19.286,16.152a.725.725,0,0,1,.723-.723H22.42a.725.725,0,0,1,.723.723v2.411a.725.725,0,0,1-.723.723H20.009a.725.725,0,0,1-.723-.723Zm0,7.714a.725.725,0,0,1,.723-.723H22.42a.725.725,0,0,1,.723.723v2.411A.725.725,0,0,1,22.42,27H20.009a.725.725,0,0,1-.723-.723Zm-7.714-7.714a.725.725,0,0,1,.723-.723h2.411a.725.725,0,0,1,.723.723v2.411a.725.725,0,0,1-.723.723H12.295a.725.725,0,0,1-.723-.723Zm0,7.714a.725.725,0,0,1,.723-.723h2.411a.725.725,0,0,1,.723.723v2.411a.725.725,0,0,1-.723.723H12.295a.725.725,0,0,1-.723-.723ZM3.857,16.152a.725.725,0,0,1,.723-.723H6.991a.725.725,0,0,1,.723.723v2.411a.725.725,0,0,1-.723.723H4.58a.725.725,0,0,1-.723-.723Zm0,7.714a.725.725,0,0,1,.723-.723H6.991a.725.725,0,0,1,.723.723v2.411A.725.725,0,0,1,6.991,27H4.58a.725.725,0,0,1-.723-.723ZM24.107,3.857H21.214V.964A.967.967,0,0,0,20.25,0H18.321a.967.967,0,0,0-.964.964V3.857H9.643V.964A.967.967,0,0,0,8.679,0H6.75a.967.967,0,0,0-.964.964V3.857H2.893A2.894,2.894,0,0,0,0,6.75V9.643H27V6.75A2.894,2.894,0,0,0,24.107,3.857Z"/>
+</svg>
+</a>
+      <a href="#/profile"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
+  <path id="Icon_ionic-md-person" data-name="Icon ionic-md-person" d="M18,18a6.75,6.75,0,1,0-6.75-6.75A6.77,6.77,0,0,0,18,18Zm0,3.375c-4.472,0-13.5,2.278-13.5,6.75V31.5h27V28.125C31.5,23.653,22.472,21.375,18,21.375Z" transform="translate(-4.5 -4.5)"/>
+</svg>
+</a>
+  </nav>
+
+  <main id="appRoot">
+    <!-------------- Pages -------------->
+
+    <!-- login page -->
+    <section id="login" class="page">
+      <header class="topbar">
+        <h2>Login</h2>
+      </header>
+      <p>My Single Page Web App Login Screen</p>
+      <!-- firebase auth container  -->
+      <section id="firebaseui-auth-container"></section>
+    </section>
+
+    <!-- home page -->
+    <section id="home" class="page">
+      <header class="topbar">
+        <div class="logo-chat-div">
+        <img src="./img/Logo DYT.png" class="topbar-logo" alt="Danish Youth Team Logo">
+        <img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon">
+        </div>
+      </header>
+      <section id="grid-users" class="grid-container"></section>
+    </section>
+
+    <!-- about page -->
+    <section id="events" class="page">
+      <header class="topbar">
+        <div class="logo-chat-div">
+        <img src="./img/Logo DYT.png" class="topbar-logo" alt="Danish Youth Team Logo">
+        <img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon">
+        </div>
+      </header>
+      <p>This is my about page</p>
+    </section>
+
+    <!-- profile page -->
+    <section id="profile" class="page">
+      <header class="topbar">
+         <div class="logo-chat-div">
+        <img src="./img/Logo DYT.png" class="topbar-logo" alt="Danish Youth Team Logo">
+        <img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon">
+        </div>
+      </header>
+      <div id="user-data"></div>
+ <a class="right" id="btn-logout">Logout</a>
+ <a href="#/settings">settings</a>
+    </section>
+
+    <!-- Settings page -->
+    <section id="settings" class="page">
+       <header class="topbar">
+         <div class="logo-chat-div">
+        <img src="./img/Logo DYT.png" class="topbar-logo" alt="Danish Youth Team Logo">
+        <img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon">
+        <a href="#/profile">Back</a>
+        </div>
+      </header>
+      
+    </section>
+
+    <!-- loader  -->
+    <section id="loader">
+      <section class="spinner"></section>
+    </section>
+
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
+  <script src="./js/app.js" type="module"></script>
+</body>
+
+</html>
