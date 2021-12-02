@@ -7,7 +7,8 @@ const _routes = {
 	"#/events": "events",
 	"#/profile": "profile",
 	"#/login": "login",
-	"#/settings": "settings"
+	"#/settings": "settings",
+	"#/chat" : "chat"
 };
 const _pages = document.querySelectorAll(".page");
 const _basePath = location.pathname.replace("index.html", ""); // remove index.html from path

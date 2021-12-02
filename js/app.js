@@ -162,6 +162,10 @@ function createAnnouncement() {
   confirmPost.addEventListener("click", () => {
     announcementForm.classList.add("form-active");
   });
+<<<<<<< Updated upstream
+=======
+  console.log(newAnnouncement.text);
+>>>>>>> Stashed changes
 }
 
 document.querySelector(".create-post-button").onclick = () =>
@@ -186,13 +190,13 @@ function appendUsers(users) {
   for (const user of users) {
     htmlTemplate += /*html*/ `
     <article>
-		<img src="${user.img}">
+		<img src="${user.image}">
       <h3>${user.name}</h3>
-      <p><a href="mailto:${user.mail}">${user.mail}</a></p>
+      <p><a href="mailto:${user.email}">${user.email}</a></p>
     </article>
     `;
   }
-  //   document.querySelector("#grid-users").innerHTML = htmlTemplate;
+   document.querySelector("#grid-users").innerHTML = htmlTemplate;
 }
 
 // =========== attach events =========== //

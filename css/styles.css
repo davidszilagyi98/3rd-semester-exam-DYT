@@ -50,7 +50,7 @@ a {
 .topbar {
   background-color: var(--blue);
   color: var(--text-color-light);
-  padding: 13.5px;
+  padding: 13px;
   text-transform: uppercase;
   position: fixed;
   top: 0;
@@ -62,17 +62,18 @@ a {
 .topbar-logo {
   width: 87px;
   height: 47px;
-  float: left;
 }
 
 .chat-icon {
   width: 36px;
-  height: 36px;
-  float: right;
 }
 
 .logo-chat-div {
-  width: 90%;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .topbar h2 {
@@ -83,16 +84,7 @@ a {
 .topbar a {
   text-decoration: none;
   color: var(--text-color-light);
-  position: absolute;
   top: 20px;
-}
-
-.topbar a.left {
-  left: 20px;
-}
-
-.topbar a.right {
-  right: 20px;
 }
 
 /* ---------- tabbar styling ---------- */
@@ -146,6 +138,7 @@ a {
 .announcements-container h3 {
   color: var(--red);
   font-weight: 500;
+  margin-top: 10%;
 }
 
 .announcements-container h1 {
@@ -456,4 +449,13 @@ input {
 
 .firebaseui-textfield.mdl-textfield .firebaseui-label::after {
   background-color: var(--green);
+}
+
+
+/*------CHAT STYLING-------*/
+#chat h1 {
+  text-align: left;
+  color: var(--blue);
+  margin: 12% 5% 5% 5%;
+  
 }
