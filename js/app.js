@@ -138,8 +138,9 @@ function appendAnnouncements(announcements) {
 }
 
 // ========== CREATE NEW USER ========== //
-const createPostButton = document.querySelector(".create-post-button");
+const createPostButton = document.querySelector(".create-post");
 const announcementForm = document.querySelector(".create-announcement");
+const confirmPost = document.querySelector(".create-post-button");
 createPostButton.addEventListener("click", () => {
   announcementForm.classList.toggle("form-active");
 });
@@ -158,10 +159,9 @@ function createAnnouncement() {
   };
 
   addDoc(_announcementsRef, newAnnouncement);
-  createPostButton.addEventListener("click", () => {
-    announcementForm.classList.toggle("form-active");
+  confirmPost.addEventListener("click", () => {
+    announcementForm.classList.add("form-active");
   });
-  console.log(newAnnouncement.text.value);
 }
 
 document.querySelector(".create-post-button").onclick = () =>
