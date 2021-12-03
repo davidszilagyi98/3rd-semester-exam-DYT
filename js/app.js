@@ -134,13 +134,13 @@ onSnapshot(_announcementsRef, (snapshot) => {
 
 // ========== Append announcements to the DOM ========== //
 async function appendAnnouncements(announcements) {
-  const user = await getUserData();
   let html = "";
   for (const announcement of announcements) {
     html += `
       <div class="card">
         <div class="card-name">
-          <h2 class="announcement-subject">${user.name}</h2>
+          <img src="${announcement.image}"
+          <h2 class="announcement-subject">${announcement.name}</h2>
         </div>
         <p>${announcement.subject}</p>
         <p class="announcement-text">${announcement.text}</p>
@@ -163,19 +163,21 @@ cancelFormButton.addEventListener("click", () => {
   announcementForm.classList.toggle("form-active");
 });
 
-function createAnnouncement() {
+async function createAnnouncement() {
+  const user = await getUserData();
   let subjectInput = document.querySelector("#subject");
   let textInput = document.querySelector("#announcement");
 
   const newAnnouncement = {
-    aid: user.name,
+    image: user.image,
+    name: user.name,
     subject: subjectInput.value,
     text: textInput.value,
   };
 
   addDoc(_announcementsRef, newAnnouncement);
   confirmPost.addEventListener("click", () => {
-    announcementForm.classList.add("form-active");
+    announcementForm.classList.remove("form-active");
   });
 }
 
