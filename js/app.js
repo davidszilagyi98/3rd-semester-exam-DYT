@@ -133,15 +133,16 @@ onSnapshot(_announcementsRef, (snapshot) => {
 });
 
 // ========== Append announcements to the DOM ========== //
-function appendAnnouncements(announcements) {
+async function appendAnnouncements(announcements) {
+  const user = await getUserData();
   let html = "";
   for (const announcement of announcements) {
     html += `
       <div class="card">
         <div class="card-name">
-          <img src=${announcement.image} alt='author image' />
-          <h2 class="announcement-author">${announcement.author}</h2>
+          <h2 class="announcement-subject">${user.name}</h2>
         </div>
+        <p>${announcement.subject}</p>
         <p class="announcement-text">${announcement.text}</p>
         <button class="card-button">Comment</button>
       </div>
@@ -150,7 +151,7 @@ function appendAnnouncements(announcements) {
   document.querySelector(".announcements").innerHTML = html;
 }
 
-// ========== CREATE NEW USER ========== //
+// ========== CREATE NEW POST ========== //
 const createPostButton = document.querySelector(".create-post");
 const announcementForm = document.querySelector(".create-announcement");
 const confirmPost = document.querySelector(".create-post-button");
@@ -163,11 +164,12 @@ cancelFormButton.addEventListener("click", () => {
 });
 
 function createAnnouncement() {
-  let authorInput = document.querySelector("#name");
+  let subjectInput = document.querySelector("#subject");
   let textInput = document.querySelector("#announcement");
 
   const newAnnouncement = {
-    author: authorInput.value,
+    aid: user.name,
+    subject: subjectInput.value,
     text: textInput.value,
   };
 

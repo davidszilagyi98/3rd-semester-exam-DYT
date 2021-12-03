@@ -183,7 +183,7 @@ a {
   margin-right: 1rem;
 }
 
-.announcements-container .announcements .announcement-author {
+.announcements-container .announcements .announcement-subject {
   color: var(--blue);
   text-transform: capitalize;
   text-align: left;
@@ -459,7 +459,7 @@ input {
 
 #firebaseui-auth-container .firebaseui-id-secondary-link {
   border: 1px solid var(--blue);
-  color: var(--blue)
+  color: var(--blue);
 }
 
 #firebaseui-auth-container .firebaseui-link {
@@ -469,28 +469,26 @@ input {
   opacity: 50%;
 }
 
-
 /*------CHAT STYLING-------*/
 #chat h1 {
   text-align: left;
   color: var(--blue);
   margin: 12% 5% 5% 5%;
-  
 }
 
 /* ---------- Splash screen---------- */
 
-#splash-screen{
+#splash-screen {
   background-color: rgb(10, 48, 65);
 }
 
-.splash-screen-logo{
+.splash-screen-logo {
   margin-top: 50%;
   margin-bottom: 30%;
   width: 75%;
 }
 
-.placeholder-splash-screen{
+.placeholder-splash-screen {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -501,14 +499,13 @@ input {
   width: 65%;
 }
 
-.placeholder-splash-screen-div{
+.placeholder-splash-screen-div {
   margin-bottom: 40%;
 }
 
-::placeholder { 
+::placeholder {
   color: var(--blue);
 }
-
 
 #splash-screen .get-started {
   display: block;
@@ -522,7 +519,6 @@ input {
   font-size: 1rem;
   width: 150px;
   margin: 22% auto;
-
 }
 
 /* ---------- Onboarding-1---------- */
@@ -550,14 +546,14 @@ input {
   font-size: 0.9rem;
 }
 
-#onboarding-1 .welcome{
+#onboarding-1 .welcome {
   font-size: 1rem;
   color: var(--blue);
   width: 80%;
   margin: 2% auto;
 }
 
-#onboarding-1 .dyt{
+#onboarding-1 .dyt {
   font-size: 1.2rem;
   font-weight: 600;
   width: 80%;
@@ -565,7 +561,7 @@ input {
   color: var(--red);
 }
 
-.next-button{
+.next-button {
   position: absolute;
   bottom: 8%;
   left: 28%;
@@ -580,7 +576,7 @@ input {
   text-decoration: none;
   font-size: 1rem;
   margin: 0 auto 15% auto;
-  }
+}
 
 .circle {
   margin: 4%;
@@ -604,7 +600,6 @@ input {
   color: var(--blue);
 }
 
-
 /* ---------- Onboarding-3---------- */
 #onboarding-3 .arrow-circle-skip {
   margin-bottom: 10%;
@@ -620,7 +615,6 @@ input {
   margin: 10% auto;
   color: var(--blue);
 }
-
 
 /* ---------- Onboarding-4---------- */
 #onboarding-4 .arrow-circle-skip {
