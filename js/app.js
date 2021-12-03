@@ -162,10 +162,6 @@ function createAnnouncement() {
   confirmPost.addEventListener("click", () => {
     announcementForm.classList.add("form-active");
   });
-<<<<<<< Updated upstream
-=======
-  console.log(newAnnouncement.text);
->>>>>>> Stashed changes
 }
 
 document.querySelector(".create-post-button").onclick = () =>
@@ -196,7 +192,7 @@ function appendUsers(users) {
     </article>
     `;
   }
-   document.querySelector("#grid-users").innerHTML = htmlTemplate;
+  document.querySelector("#grid-users").innerHTML = htmlTemplate;
 }
 
 // =========== attach events =========== //
