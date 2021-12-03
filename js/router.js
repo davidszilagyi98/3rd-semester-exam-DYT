@@ -103,3 +103,25 @@ function showTabbar(show) {
 		tabbar.classList.add("hide");
 	}
 }
+
+
+//Hiding the menu for onboarding
+let cUrl = window.location.href;
+
+if (
+  cUrl.indexOf("home") != -1 ||
+  cUrl.indexOf("events") != -1 ||
+  cUrl.indexOf("profile") != -1 ||
+  cUrl.indexOf("chat") != -1 
+) {
+  tabbar.classList.remove("hide");
+} else {
+  tabbar.classList.add("hide");
+}
+
+window.showMenu = function () {
+  let navBar = document.querySelector(".tabbar");
+  if ((navBar.classList.remove("hide"))) {
+    navBar.classList.add("hide");
+  }
+};
