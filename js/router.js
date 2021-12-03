@@ -8,7 +8,13 @@ const _routes = {
 	"#/profile": "profile",
 	"#/login": "login",
 	"#/settings": "settings",
-	"#/chat" : "chat"
+	"#/chat" : "chat",
+	"#/splash-screen" : "splash-screen",
+	"#/onboarding-1" : "onboarding-1",
+	"#/onboarding-2" : "onboarding-2",
+	"#/onboarding-3" : "onboarding-3",
+	"#/onboarding-4" : "onboarding-4",
+
 };
 const _pages = document.querySelectorAll(".page");
 const _basePath = location.pathname.replace("index.html", ""); // remove index.html from path

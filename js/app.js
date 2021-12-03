@@ -49,7 +49,7 @@ onAuthStateChanged(_auth, (user) => {
 
 function userAuthenticated(user) {
   appendUserData(user);
-  navigateTo("#/");
+  navigateTo("#/splash-screen");
   showLoader(false);
 }
 
@@ -64,7 +64,7 @@ function userNotAuthenticated() {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     ],
-    signInSuccessUrl: "#/",
+    signInSuccessUrl: "#/splash-screen",
   };
   // Init Firebase UI Authentication
   if (!_firebaseUI) {
@@ -74,11 +74,40 @@ function userNotAuthenticated() {
   showLoader(false);
 }
 
+/* async function getUserData() {
+	const authUser = _auth.currentUser;
+	const docRef = doc(_usersRef, authUser.uid);
+	const docSnap = await getDoc(docRef);
+	const userData = docSnap.data();
+
+	return {
+		...authUser,
+		...getUserData
+	};
+}
+
+async function appendUserData() {
+	const user = await getUserData();
+	document.querySelector("#name").value = user.name;
+	document.querySelector("#mail").value = user.email;
+	document.querySelector("#imagePreview").src = user.image;
+}
+
+async function updateUser() {
+	const userToUpdate = {
+		name: document.querySelector("#name").value,
+		email: document.querySelector("#mail").value,
+		image: document.querySelector("#imagePreview").src
+	};
+	const userRef = doc(_usersRef, _auth.currentUser.uid);
+	await setDoc(userRef, userToUpdate, {merge: true});
+} */
+
 function appendUserData(user) {
   console.log(user);
   document.querySelector("#user-data").innerHTML = /*html*/ `
-    <img class="profile-img" src="${user.photoURL || "img/placeholder.jpg"}">
-    <h3>${user.displayName}</h3>
+    <img class="profile-img" src="${user.image || "img/placeholder.jpg"}">
+    <h3>${user.name}</h3>
     <p>${user.email}</p>
   `;
 }
