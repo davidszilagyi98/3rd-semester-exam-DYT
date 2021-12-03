@@ -485,9 +485,9 @@ input {
 }
 
 .splash-screen-logo{
-  margin-top: 20%;
+  margin-top: 50%;
   margin-bottom: 30%;
-  width: 70%;
+  width: 75%;
 }
 
 .placeholder-splash-screen{
@@ -521,7 +521,7 @@ input {
   text-decoration: none;
   font-size: 1rem;
   width: 150px;
-  margin: 0 auto;
+  margin: 22% auto;
 
 }
 
