@@ -14,6 +14,8 @@ import {
   updateDoc,
   deleteDoc,
   addDoc,
+  getDoc,
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -74,44 +76,6 @@ function userNotAuthenticated() {
   showLoader(false);
 }
 
-/* async function getUserData() {
-	const authUser = _auth.currentUser;
-	const docRef = doc(_usersRef, authUser.uid);
-	const docSnap = await getDoc(docRef);
-	const userData = docSnap.data();
-
-	return {
-		...authUser,
-		...getUserData
-	};
-}
-
-async function appendUserData() {
-	const user = await getUserData();
-	document.querySelector("#name").value = user.name;
-	document.querySelector("#mail").value = user.email;
-	document.querySelector("#imagePreview").src = user.image;
-}
-
-async function updateUser() {
-	const userToUpdate = {
-		name: document.querySelector("#name").value,
-		email: document.querySelector("#mail").value,
-		image: document.querySelector("#imagePreview").src
-	};
-	const userRef = doc(_usersRef, _auth.currentUser.uid);
-	await setDoc(userRef, userToUpdate, {merge: true});
-} */
-
-function appendUserData(user) {
-  console.log(user);
-  document.querySelector("#user-data").innerHTML = /*html*/ `
-    <img class="profile-img" src="${user.image || "img/placeholder.jpg"}">
-    <h3>${user.name}</h3>
-    <p>${user.email}</p>
-  `;
-}
-
 function logout() {
   signOut(_auth);
 }
@@ -125,8 +89,6 @@ function showLoader(show) {
   }
 }
 
-// =========== reading from collection (modular v9) =========== //
-
 // reference to database
 const _db = getFirestore();
 // reference to the announcements in the database
@@ -135,6 +97,28 @@ let _announcements = [];
 // reference to users collection in database
 const _usersRef = collection(_db, "users");
 let _users = [];
+
+async function getUserData() {
+  const authUser = _auth.currentUser;
+  const docRef = doc(_usersRef, authUser.uid);
+  const docSnap = await getDoc(docRef);
+  const userData = docSnap.data();
+
+  return {
+    ...authUser,
+    ...userData,
+  };
+}
+
+// profile read from database
+async function appendUserData() {
+  const user = await getUserData();
+  document.querySelector("#user-data").innerHTML = /*html*/ `
+    <img class="profile-img" src="${user.image || "img/placeholder.jpg"}">
+    <h3>${user.name}</h3>
+    <p>${user.email}</p>
+  `;
+}
 
 // ========== READ ==========
 // onSnapshot: listen for realtime updates from announcements
@@ -204,7 +188,6 @@ onSnapshot(_usersRef, (snapshot) => {
     user.id = doc.id;
     return user;
   });
-  console.log(_users);
   appendUsers(_users);
   showLoader(false);
 });
