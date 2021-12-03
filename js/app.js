@@ -51,7 +51,7 @@ onAuthStateChanged(_auth, (user) => {
 
 function userAuthenticated(user) {
   appendUserData(user);
-  navigateTo("#/splash-screen");
+  navigateTo("#/");
   showLoader(false);
 }
 
