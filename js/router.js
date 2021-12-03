@@ -43,7 +43,7 @@ export function navigateTo(path) {
 function showPage(path) {
 	hideAllPages(); // hide all pages
 	document.querySelector(`#${_routes[path]}`).style.display = "block"; // show page by given path
-	if (path == "#/login" || path == "#/signup") {
+	if (path == "#/login" || path == "#/signup" || path == "#/splash-screen" || path == "#/onboarding-1" || path == "#/onboarding-2" || path == "#/onboarding-3" || path == "#/onboarding-4") {
 		showTabbar(false);
 	} else {
 		showTabbar(true);
@@ -105,23 +105,3 @@ function showTabbar(show) {
 }
 
 
-//Hiding the menu for onboarding
-let cUrl = window.location.href;
-
-if (
-  cUrl.indexOf("home") != -1 ||
-  cUrl.indexOf("events") != -1 ||
-  cUrl.indexOf("profile") != -1 ||
-  cUrl.indexOf("chat") != -1 
-) {
-  tabbar.classList.remove("hide");
-} else {
-  tabbar.classList.add("hide");
-}
-
-window.showMenu = function () {
-  let navBar = document.querySelector(".tabbar");
-  if ((navBar.classList.remove("hide"))) {
-    navBar.classList.add("hide");
-  }
-};
