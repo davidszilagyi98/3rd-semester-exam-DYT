@@ -143,6 +143,35 @@ async function appendUserData() {
     </div>
   </div>
   `;
+
+  document.querySelector("#user-settings").innerHTML = /*html*/ `
+  <img class="profile-img" src="${user.image || "img/>Logo DYT.png"}">
+  <h2 class="displayName">${user.name}</h2>
+  <div class="profile-info">
+  <div class="profile-container">
+    <div class="profile-icon-text">
+    <h3>User name</h3>
+    <button class="edit">edit</button>
+    </div>
+     <p>${user.name}</p>
+    <div class="profile-icon-text">
+    <h3>Password</h3>
+    <button class="edit">edit</button>
+    </div>
+    <p class="settings-password">******</p>
+  </div>
+  <div class="profile-container">
+        <div class="profile-icon-text">
+        <h3>Notifications</h3>
+        <input type="checkbox" id="switch"
+                    class="checkbox" />
+        <label for="switch" class="toggle">
+              
+        </label>
+   </div>
+   </div>
+  </div>
+  `
 }
 
 
@@ -311,13 +340,14 @@ async function appendEvents(events) {
         <p class="event-detailes">${event.event}</p>
         <div class="reaction-buttons">
         <button class="card-button2">Skip :/</button>
-        <button class="card-button">Coming :)</button>
+        <button class="card-button-coming">Coming :)</button>
         </div>
       </div>
     `;
   }
   document.querySelector(".events").innerHTML = html;
 }
+
 
 // ========== CREATE NEW Event ========== //
 const createEventButton = document.querySelector(".create-event");
