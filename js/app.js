@@ -123,17 +123,28 @@ async function appendUserData() {
     <h2 class="displayName">${user.name}</h2>
     <div class="profile-info">
     <div class="profile-container">
+    <div class="profile-icon-text">
      <h3>Bio </h3>
+     <svg xmlns="http://www.w3.org/2000/svg" width="20.254" height="18" viewBox="0 0 20.254 18">
+  <path id="Icon_awesome-edit" data-name="Icon awesome-edit" d="M14.157,2.929,17.328,6.1a.344.344,0,0,1,0,.485l-7.68,7.68-3.263.362a.684.684,0,0,1-.756-.756l.362-3.263,7.68-7.68A.344.344,0,0,1,14.157,2.929Zm5.7-.805L18.137.408a1.375,1.375,0,0,0-1.941,0L14.951,1.653a.344.344,0,0,0,0,.485L18.123,5.31a.344.344,0,0,0,.485,0l1.245-1.245A1.375,1.375,0,0,0,19.853,2.124ZM13.5,12.177v3.58H2.25V4.5h8.08a.432.432,0,0,0,.3-.123l1.407-1.407a.422.422,0,0,0-.3-.721H1.688A1.688,1.688,0,0,0,0,3.942V16.319a1.688,1.688,0,0,0,1.688,1.688H14.065a1.688,1.688,0,0,0,1.688-1.688V10.77a.423.423,0,0,0-.721-.3l-1.407,1.407A.432.432,0,0,0,13.5,12.177Z" transform="translate(0 -0.007)" fill="#b2b2b2"/>
+</svg>
+</div>
     <p class="bio">${user.bio}</p>
     </div>
     <div class="profile-container">
+    <div class="profile-icon-text">
     <h3>Contact info </h3>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20.254" height="18" viewBox="0 0 20.254 18">
+  <path id="Icon_awesome-edit" data-name="Icon awesome-edit" d="M14.157,2.929,17.328,6.1a.344.344,0,0,1,0,.485l-7.68,7.68-3.263.362a.684.684,0,0,1-.756-.756l.362-3.263,7.68-7.68A.344.344,0,0,1,14.157,2.929Zm5.7-.805L18.137.408a1.375,1.375,0,0,0-1.941,0L14.951,1.653a.344.344,0,0,0,0,.485L18.123,5.31a.344.344,0,0,0,.485,0l1.245-1.245A1.375,1.375,0,0,0,19.853,2.124ZM13.5,12.177v3.58H2.25V4.5h8.08a.432.432,0,0,0,.3-.123l1.407-1.407a.422.422,0,0,0-.3-.721H1.688A1.688,1.688,0,0,0,0,3.942V16.319a1.688,1.688,0,0,0,1.688,1.688H14.065a1.688,1.688,0,0,0,1.688-1.688V10.77a.423.423,0,0,0-.721-.3l-1.407,1.407A.432.432,0,0,0,13.5,12.177Z" transform="translate(0 -0.007)" fill="#b2b2b2"/>
+</svg>
+</div>
     <p class="profile-phone">${user.phone}</p>
     <p class="profile-email">${user.email}</p>
     </div>
   </div>
   `;
 }
+
 
 // ========== READ ==========
 // onSnapshot: listen for realtime updates from announcements

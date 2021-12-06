@@ -90,15 +90,13 @@ a {
 /* ---------- tabbar styling ---------- */
 .tabbar {
   /* background-color: var(--green); */
-  background-color: red;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
   background-color: #fff;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
+  border-top: 1px solid var(--light-grey);
   box-shadow: #000000 22%;
   display: flex;
   justify-content: space-around;
@@ -108,13 +106,16 @@ a {
 /* Style the links inside the navigation bar */
 .tabbar a {
   display: inline-block;
-  color: var(--text-color-light);
   text-align: center;
-  padding: 20px 16px;
+  padding: 12px 16px 12px 16px;
   text-decoration: none;
-  font-size: 0.8em;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: lightgray
+}
+
+.tabbar svg {
+  margin-bottom: 5px;
 }
 
 /* Add a color to the active/current link */
@@ -123,6 +124,7 @@ a {
 }
 
 .tabbar a.active {
+  color: var(--red);
   fill: var(--red);
 }
 
@@ -171,8 +173,8 @@ a {
 
 .announcements-container .card {
   padding: 1rem;
-  border-radius: 30px;
-  background-color: rgba(10, 48, 65, 0.2);
+  border-radius: 0.5rem;
+  background-color: var(--blue);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -184,7 +186,7 @@ a {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  color: var(--blue);
+  color: #fff;
 }
 
 .announcements-container .card .card-name img {
@@ -220,7 +222,7 @@ a {
   width: 120px;
   height: 36px;
   color: #fff;
-  border-radius: 1rem;
+  border-radius: 0;
   background-color: var(--red);
 }
 
@@ -637,7 +639,7 @@ input {
 
 .events-container .card {
   padding: 1rem;
-  border-radius: 30px;
+  border-radius: 0.5rem;
   background-color: var(--blue);
   display: flex;
   flex-direction: column;
@@ -833,6 +835,16 @@ input {
   margin: 4%;
 }
 
+.profile-icon-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#user-data svg {
+  color: var(--light-grey);
+}
+
 .profile-img {
   border-radius: 50%;
   width: 50%;
@@ -857,7 +869,8 @@ input {
 
 #profile h3 {
   color: var(--blue);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;;
 }
 
 .bio {
