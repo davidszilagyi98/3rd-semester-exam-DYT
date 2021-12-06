@@ -117,7 +117,7 @@ async function getUserData() {
 async function appendUserData() {
   const user = await getUserData();
   document.querySelector("#user-data").innerHTML = /*html*/ `
-    <img class="profile-img" src="${user.image || "img/placeholder.jpg"}">
+    <img class="profile-img" src="${user.image || "img/>Logo DYT.png"}">
     <h2 class="displayName">${user.name}</h2>
     <div class="profile-info">
     <div class="profile-container">

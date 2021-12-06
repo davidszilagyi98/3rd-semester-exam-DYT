@@ -64,7 +64,7 @@ a {
   display: block;
 }
 
-.chat-icon {
+.team-icon {
   width: 36px;
 }
 
@@ -438,13 +438,6 @@ input {
   border: none;
   color: #333;
   opacity: 50%;
-}
-
-/*------CHAT STYLING-------*/
-#chat h1 {
-  text-align: left;
-  color: var(--blue);
-  margin: 13% 5% 10% 5%;
 }
 
 /* ---------- Splash screen---------- */
@@ -939,8 +932,11 @@ input {
 
 
 
-#chat h1 {
+#team h1 {
   margin-left: 2rem;
+  text-align: left;
+  color: var(--blue);
+  margin: 13% 5% 10% 5%;
 }
 
 .team-displayname {

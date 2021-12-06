@@ -8,7 +8,7 @@ const _routes = {
 	"#/profile": "profile",
 	"#/login": "login",
 	"#/settings": "settings",
-	"#/chat" : "chat",
+	"#/team" : "team",
 	"#/splash-screen" : "splash-screen",
 	"#/onboarding-1" : "onboarding-1",
 	"#/onboarding-2" : "onboarding-2",
