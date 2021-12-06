@@ -16,6 +16,9 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="shortcut icon" type="image/png" href="./img/Logo DYT.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -83,19 +86,22 @@
       <section id="chat" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
-            <img
+            <a href="#/"><img
               src="./img/Logo DYT.png"
               class="topbar-logo"
               alt="Danish Youth Team Logo"
-            />
+            /></a> 
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
           </div>
         </header>
-        <h1>Get in touch with each other!</h1>
+         
+        <h1>Get in touch easily with the members of our community.</h1>
+        </div>
         <section id="grid-users" class="grid-container"></section>
       </section>
+
       <!---Splash screen-->
       <section id="splash-screen" class="page">
         <img
@@ -107,6 +113,7 @@
         <a href="#/onboarding-1" class="get-started">Let's get started</a>
       </section>
 
+      
       <!---Onboarding-1-->
       <section id="onboarding-1" class="page">
         <header class="topbar">
@@ -11444,7 +11451,7 @@
       </section>
 
       <!-- chat page -->
-      <section id="chat" class="page">
+     <!--  <section id="chat" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
             <img
@@ -11453,30 +11460,31 @@
               alt="Danish Youth Team Logo"
             />
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
           </div>
         </header>
+       
         <h1>Get in touch with each other!</h1>
         <section id="grid-users" class="grid-container"></section>
-      </section>
+      </section> -->
 
       <!-- home page -->
       <section id="home" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
-            <img
+           <a href="#/"><img
               src="./img/Logo DYT.png"
               class="topbar-logo"
               alt="Danish Youth Team Logo"
-            />
+            /></a> 
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
           </div>
         </header>
         <div class="announcements-container">
-          <h3>Hi, name</h3>
+          <div class="welcome"></div>
           <h1>Check the newest announcements!</h1>
           <!--Name should be displayed here by a function later......-->
           <button class="create-post">Create post</button>
@@ -11507,54 +11515,93 @@
         <!-- <section id="grid-users" class="grid-container"></section> -->
       </section>
 
-      <!-- about page -->
+      
+      <!-- events page -->
       <section id="events" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
-            <img
+            <a href="#/"><img
               src="./img/Logo DYT.png"
               class="topbar-logo"
               alt="Danish Youth Team Logo"
-            />
+            /></a> 
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
           </div>
         </header>
-        <p>This is my about page</p>
+             
+        <div class="events-container">
+         
+          <h1>Do you have a great event idea? Let us know!</h1>
+
+          <button class="create-event">Create event</button>
+          <div class="create-event-form">
+            <form id="event-form">
+              <input type="text" id="event-subject" placeholder="Titel" required />
+               <input type="date" id="event-date" placeholder="Date" required />
+               <input type="time" id="event-time" placeholder="Time" required />
+                <input type="text" id="event-place" placeholder="Place" required />
+              <textarea
+                name="event"
+                id="event-detailes"
+                cols="30"
+                rows="10"
+                placeholder="Your event idea here..."
+              ></textarea>
+              <div class="create-event-buttons">
+                <button class="cancel-post">Cancel</button>
+                <button
+                  type="button"
+                  name="create-event-button"
+                  class="create-event-button"
+                >
+                  Create event
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="events"></div>
+        </div>
+        <!-- <section id="grid-users" class="grid-container"></section> -->
+      </section>
+
       </section>
 
       <!-- profile page -->
       <section id="profile" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
-            <img
+             <a href="#/"><img
               src="./img/Logo DYT.png"
               class="topbar-logo"
               alt="Danish Youth Team Logo"
-            />
+            /></a>
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
           </div>
         </header>
         <div id="user-data"></div>
 
-        <a class="right" id="btn-logout">Logout</a>
+        
         <a href="#/settings">settings</a>
+        <a class="right" id="btn-logout">Logout</a>
       </section>
+
+      
 
       <!-- Settings page -->
       <section id="settings" class="page">
         <header class="topbar">
           <div class="logo-chat-div">
-            <img
+             <a href="#/"><img
               src="./img/Logo DYT.png"
               class="topbar-logo"
               alt="Danish Youth Team Logo"
-            />
+            /></a>
             <a href="#/chat"
-              ><img src="./img/chat-icon.png" class="chat-icon" alt="chat-icon"
+              ><img src="./img/people.png" class="chat-icon" alt="chat-icon"
             /></a>
             <a href="#/profile">Back</a>
           </div>

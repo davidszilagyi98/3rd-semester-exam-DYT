@@ -51,7 +51,7 @@ onAuthStateChanged(_auth, (user) => {
 
 function userAuthenticated(user) {
   appendUserData(user);
-  navigateTo("#/");
+  navigateTo("#/splash-screen");
   showLoader(false);
 }
 
@@ -94,6 +94,9 @@ const _db = getFirestore();
 // reference to the announcements in the database
 const _announcementsRef = collection(_db, "announcements");
 let _announcements = [];
+// reference to the events in the database
+const _eventsRef = collection(_db, "events");
+let _events = [];
 // reference to users collection in database
 const _usersRef = collection(_db, "users");
 let _users = [];
@@ -115,8 +118,18 @@ async function appendUserData() {
   const user = await getUserData();
   document.querySelector("#user-data").innerHTML = /*html*/ `
     <img class="profile-img" src="${user.image || "img/placeholder.jpg"}">
-    <h3>${user.name}</h3>
-    <p>${user.email}</p>
+    <h2 class="displayName">${user.name}</h2>
+    <div class="profile-info">
+    <div class="profile-container">
+     <h3>Bio </h3>
+    <p class="bio">${user.bio}</p>
+    </div>
+    <div class="profile-container">
+    <h3>Contact info </h3>
+    <p class="profile-phone">${user.phone}</p>
+    <p class="profile-email">${user.email}</p>
+    </div>
+  </div>
   `;
 }
 
@@ -142,8 +155,10 @@ async function appendAnnouncements(announcements) {
           <img src="${announcement.image}"
           <h2 class="announcement-subject">${announcement.name}</h2>
         </div>
-        <p>${announcement.subject}</p>
+        <div class="text-container">
+        <h4>${announcement.subject}</h4>
         <p class="announcement-text">${announcement.text}</p>
+        </div>
         <button class="card-button">Comment</button>
       </div>
     `;
@@ -201,10 +216,10 @@ function appendUsers(users) {
   let htmlTemplate = "";
   for (const user of users) {
     htmlTemplate += /*html*/ `
-    <article>
-		<img src="${user.image}">
-      <h3>${user.name}</h3>
-      <p><a href="mailto:${user.email}">${user.email}</a></p>
+    <article class="team-list" onclick="deteiledview(uid)">
+		<img class="profile-picture-team" src="${user.image}">
+      <h3 class="team-displayname">${user.name}</h3>
+     
     </article>
     `;
   }
@@ -213,3 +228,91 @@ function appendUsers(users) {
 
 // =========== attach events =========== //
 document.querySelector("#btn-logout").onclick = () => logout();
+
+
+// ========== READ ==========
+// onSnapshot: listen for realtime updates from events
+onSnapshot(_eventsRef, (snapshot) => {
+  _events = snapshot.docs.map((doc) => {
+    const event = doc.data();
+    event.id = doc.id;
+    return event;
+  });
+  appendEvents(_events);
+  // showLoader(false);
+});
+
+// ========== Append events to the DOM ========== //
+async function appendEvents(events) {
+  let html = "";
+  for (const event of events) {
+    html += `
+      <div class="card">
+        <div class="card-name">
+          <img src="${event.image}"
+          <h2 class="event-subject">${event.name}</h2>
+        </div>
+        <p class="event-titel">${event.titel}</p>
+        <div class="card-icon-container">
+        <img src="./img/date.png">
+         <p class="event-date">${event.date}</p>
+        </div>
+        <div class="card-icon-container">
+        <img src="./img/time.png">
+        <p class="event-time">${event.time}</p>
+        </div>
+        <div class="card-icon-container">
+        <img src="./img/place.png">
+        <p class="event-place">${event.place}</p>
+        </div>
+        <p class="event-detailes">${event.event}</p>
+        <div class="reaction-buttons">
+        <button class="card-button2">Skip :/</button>
+        <button class="card-button">Coming :)</button>
+        </div>
+      </div>
+    `;
+  }
+  document.querySelector(".events").innerHTML = html;
+}
+
+// ========== CREATE NEW Event ========== //
+const createEventButton = document.querySelector(".create-event");
+const eventForm = document.querySelector(".create-event-form");
+const confirmEvent = document.querySelector(".create-event-button");
+createEventButton.addEventListener("click", () => {
+  eventForm.classList.toggle("form-active");
+});
+const cancelFormButtonEvent = document.querySelector(".cancel-post");
+cancelFormButtonEvent.addEventListener("click", () => {
+  eventForm.classList.toggle("form-active");
+});
+
+async function createEvent() {
+  const user = await getUserData();
+  let titelInput = document.querySelector("#event-subject");
+  let eventDate = document.querySelector("#event-date");
+  let eventTime = document.querySelector("#event-time");
+  let eventplace = document.querySelector("#event-place");
+  let detailInput = document.querySelector("#event-detailes");
+
+  const newEvent = {
+    image: user.image,
+    name: user.name,
+    titel: titelInput.value,
+    date: eventDate.value,
+    time: eventTime.value,
+    place: eventplace.value,
+    event: detailInput.value,
+  };
+
+  addDoc(_eventsRef, newEvent);
+  confirmEvent.addEventListener("click", () => {
+    eventForm.classList.remove("form-active");
+  });
+}
+
+document.querySelector(".create-event-button").onclick = () =>
+  createEvent();
+
+

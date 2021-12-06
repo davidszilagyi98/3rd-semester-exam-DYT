@@ -14,6 +14,7 @@ const _routes = {
 	"#/onboarding-2" : "onboarding-2",
 	"#/onboarding-3" : "onboarding-3",
 	"#/onboarding-4" : "onboarding-4",
+	"#/detailedView" : "detailedView",
 
 };
 const _pages = document.querySelectorAll(".page");
@@ -104,4 +105,7 @@ function showTabbar(show) {
 	}
 }
 
+function goBack() {
+  window.history.back();
+}
 
