@@ -100,6 +100,8 @@ let _events = [];
 // reference to users collection in database
 const _usersRef = collection(_db, "users");
 let _users = [];
+let _detailedProfileId;
+let _filteredUsers = [];
 
 async function getUserData() {
   const authUser = _auth.currentUser;
@@ -147,9 +149,12 @@ onSnapshot(_announcementsRef, (snapshot) => {
 
 // ========== Append announcements to the DOM ========== //
 async function appendAnnouncements(announcements) {
+  const user = await getUserData();
+  document.querySelector(".announcements-container .welcome").textContent =
+    "Welcome, " + user.name;
   let html = "";
   for (const announcement of announcements) {
-    html += `
+    html += /*html*/ `
       <div class="card">
         <div class="card-name">
           <img src="${announcement.image}"
@@ -211,24 +216,51 @@ onSnapshot(_usersRef, (snapshot) => {
   showLoader(false);
 });
 
+// DETAILED VIEW OF PEOPLE
+/**
+ * Finds a display selected user by given.
+ * @param id
+ */
+function selectUserProfile(id) {
+  _detailedProfileId = id;
+  const user = _users.find((user) => user.id == _detailedProfileId);
+  // get the user details
+  let profileImage = document.querySelector("#detailed-profile .profile-image");
+  let profileName = document.querySelector("#detailed-profile .displayName");
+  let profileBio = document.querySelector("#detailed-profile .bio");
+  let profilePhone = document.querySelector(
+    "#detailed-profile .detailed-phone"
+  );
+  let profileEmail = document.querySelector(
+    "#detailed-profile .detailed-email"
+  );
+  profileName.textContent = user.name;
+  profileBio.textContent = user.bio;
+  profilePhone.textContent = user.phone;
+  profileEmail.textContent = user.email;
+  profileImage.src = user.image;
+  navigateTo("#/detailedProfileView");
+}
+
 // append users to the DOM
 function appendUsers(users) {
   let htmlTemplate = "";
   for (const user of users) {
     htmlTemplate += /*html*/ `
-    <article class="team-list" onclick="deteiledview(uid)">
-		<img class="profile-picture-team" src="${user.image}">
+    <article class="team-list" data-id="${user.id}">
+      <img class="profile-picture-team" src="${user.image}">
       <h3 class="team-displayname">${user.name}</h3>
-     
     </article>
     `;
   }
   document.querySelector("#grid-users").innerHTML = htmlTemplate;
+  document.querySelectorAll(".team-list").forEach((article) => {
+    article.onclick = () => selectUserProfile(article.getAttribute("data-id"));
+  });
 }
 
 // =========== attach events =========== //
 document.querySelector("#btn-logout").onclick = () => logout();
-
 
 // ========== READ ==========
 // onSnapshot: listen for realtime updates from events
@@ -312,7 +344,4 @@ async function createEvent() {
   });
 }
 
-document.querySelector(".create-event-button").onclick = () =>
-  createEvent();
-
-
+document.querySelector(".create-event-button").onclick = () => createEvent();

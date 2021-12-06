@@ -7,7 +7,7 @@
   --text-color-light: #f1f1f1;
   --text-color-dark: #333;
   --white: #fff;
-  --font-family:  'Lato', sans-serif;
+  --font-family: "Lato", sans-serif;
   --text-color-error: #ee6e73;
   --text-color-in-stock: rgb(172, 198, 201);
 }
@@ -163,6 +163,10 @@ a {
 
 .announcements-container .announcements {
   margin-top: 2rem;
+}
+
+.announcements-container .welcome {
+  margin: 1rem 0;
 }
 
 .announcements-container .card {
@@ -385,7 +389,6 @@ input {
   display: block;
 }
 
-
 /* ---------- login styling ---------- */
 .login-message {
   color: var(--text-color-error);
@@ -596,7 +599,6 @@ input {
   color: var(--blue);
 }
 
-
 /* EVENTS PAGE */
 .events-container {
   display: flex;
@@ -664,7 +666,7 @@ input {
   align-items: center;
   padding-left: 0.7rem;
   margin-bottom: 5px;
-  }
+}
 
 .events-container .card .card-icon-container img {
   width: 15px;
@@ -754,7 +756,7 @@ input {
 .create-event-form {
   margin: 1rem auto 0 auto;
   width: 95%;
-  background-color:var(--blue);
+  background-color: var(--blue);
   padding: 0.5rem 0.5rem 2rem 0.5rem;
 }
 
@@ -871,7 +873,7 @@ input {
   font-size: 0.8rem;
 }
 
-.right{
+.right {
   display: block;
   width: 100px;
   color: var(--red);
@@ -881,7 +883,6 @@ input {
   margin: 15% auto;
   text-decoration: none;
 }
-
 
 /* ---------- Team page---------- */
 /* ---------- grid container styling ---------- */
@@ -930,8 +931,6 @@ input {
 }
  */
 
-
-
 #team h1 {
   margin-left: 2rem;
   text-align: left;
@@ -956,4 +955,15 @@ input {
 .team-list {
   display: flex;
   align-items: center;
+}
+
+#detailed-profile img {
+  margin-top: 3rem;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#detailed-profile button {
+  margin-bottom: 4rem;
 }
