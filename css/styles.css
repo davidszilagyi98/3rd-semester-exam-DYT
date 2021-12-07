@@ -111,7 +111,7 @@ a {
   text-decoration: none;
   letter-spacing: 0.1em;
   font-size: 0.7rem;
-  color: lightgray
+  color: lightgray;
 }
 
 .tabbar svg {
@@ -832,6 +832,20 @@ input {
   color: #fff;
 }
 
+.thumbnails {
+  margin: 1rem 0 0 0;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.thumbnails img {
+  width: 28px;
+  border-radius: 50%;
+}
+
 /* ---------- Profile page---------- */
 
 .arrow-back {
@@ -979,7 +993,6 @@ input {
   color: var(--blue);
 }
 
-
 .team-displayname {
   color: var(--blue);
   font-size: 1.2rem;
@@ -1002,7 +1015,6 @@ input {
 /* ---------- Detailed view page---------- */
 
 #detailed-profile img {
-
   width: 50%;
   height: auto;
   border-radius: 50%;
@@ -1061,41 +1073,41 @@ input {
   margin-bottom: 0;
 }
 .toggle {
-        position : relative ;
-        display : inline-block;
-        width : 40px;
-        height : 20px;
-        background-color: #fff;
-        border-radius: 30px;
-        border: 1px solid var(--blue);
-    }
-            
-    /* After slide changes */
-    .toggle:after {
-        content: '';
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background-color: var(--blue);
-        border: none;
-        top: 1px; 
-        left: 2px;
-        transition:  all 0.5s;
-    }
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  border: 1px solid var(--blue);
+}
 
-    /* Checkbox checked effect */
-    .checkbox:checked + .toggle::after {
-        left : 20px; 
-        background-color: #fff;
-    }
-            
-    /* Checkbox checked toggle label bg color */
-    .checkbox:checked + .toggle {
-        background-color: var(--blue)
-    }
-            
-    /* Checkbox vanished */
-    .checkbox { 
-        display : none;
-    }
+/* After slide changes */
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  border: none;
+  top: 1px;
+  left: 2px;
+  transition: all 0.5s;
+}
+
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+  left: 20px;
+  background-color: #fff;
+}
+
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+  background-color: var(--blue);
+}
+
+/* Checkbox vanished */
+.checkbox {
+  display: none;
+}

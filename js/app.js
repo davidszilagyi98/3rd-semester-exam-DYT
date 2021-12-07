@@ -171,9 +171,8 @@ async function appendUserData() {
    </div>
    </div>
   </div>
-  `
+  `;
 }
-
 
 // ========== READ ==========
 // onSnapshot: listen for realtime updates from announcements
@@ -339,15 +338,24 @@ async function appendEvents(events) {
         </div>
         <p class="event-detailes">${event.event}</p>
         <div class="reaction-buttons">
-        <button class="card-button2">Skip :/</button>
-        <button class="card-button-coming">Coming :)</button>
+          <button class="card-button2">Skip :/</button>
+          <button class="card-button-coming">Coming :)</button>
         </div>
+        <div class="thumbnails"></div>
       </div>
     `;
   }
   document.querySelector(".events").innerHTML = html;
+  let comingButton = document.querySelector(".card-button-coming");
+  async function appendThumbnails(users) {
+    const user = await getUserData();
+    let thumbnails = document.querySelector(".thumbnails");
+    let html = "";
+    html += /*html*/ `<img src='${user.image}' />`;
+    thumbnails.innerHTML = html;
+  }
+  comingButton.onclick = () => appendThumbnails(_users);
 }
-
 
 // ========== CREATE NEW Event ========== //
 const createEventButton = document.querySelector(".create-event");
